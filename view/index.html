@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui" />
+		<meta name="format-detection" content="telephone=no" />
+		<!-- 数字不识别成电话号码-->
+		<link rel="stylesheet" type="text/css" href="/static/css/reset.css" />
+		<link rel="stylesheet" type="text/css" href="/static/css/all.css" />		
+		<title>书城首页</title>
+	</head>
+
+	<body>
+		<style type="text/css">
+			
+		</style>
+		<div id="root" style="width:734px;height:100%;">
+			<div class="container-wrap" id="app">
+				<!--{{test}}-->
+				<% include include/header.html%>
+				<div class="container-scroll">
+					<% include include/index-top.html%>
+					<% include include/index-hot.html%>
+					<% include include/index-recommend.html%>
+					<% include include/index-female.html%>
+					<% include include/index-male.html%>
+					<% include include/index-free.html%>
+					<% include include/index-bottom.html%>				
+				</div>
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript" src="../static/script/vue.js"></script>
+	<script type="text/javascript" src="../static/script/zepto.js"></script>
+	<script type="text/javascript" src="../static/script/pages/index.js"></script>
+
+</html>
