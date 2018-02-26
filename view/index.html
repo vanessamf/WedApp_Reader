@@ -1,31 +1,37 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui" />
 		<meta name="format-detection" content="telephone=no" />
 		<!-- 数字不识别成电话号码-->
 		<link rel="stylesheet" type="text/css" href="/static/css/reset.css" />
-		<link rel="stylesheet" type="text/css" href="/static/css/all.css" />		
+		<link rel="stylesheet" type="text/css" href="/static/css/all.css" />
 		<title>书城首页</title>
 	</head>
 
 	<body>
 		<style type="text/css">
-			
+
 		</style>
-		<div id="root" style="width:734px;height:100%;">
-			<div class="container-wrap" id="app">
-				<!--{{test}}-->
-				<% include include/header.html%>
-				<div class="container-scroll">
-					<% include include/index-top.html%>
-					<% include include/index-hot.html%>
-					<% include include/index-recommend.html%>
-					<% include include/index-female.html%>
-					<% include include/index-male.html%>
-					<% include include/index-free.html%>
-					<% include include/index-bottom.html%>				
+		<div id="app" style="width:734px;height:100%;overflow: hidden;">
+			<% include include/header.html%>
+			<div style="width:1468px;height:100%;transition-duration:.5s;transform: translate3d({{position}}px,0px,0px);">
+				<div class="container-wrap" style="width:734px;float:left;">
+					<!--{{test}}-->
+					<div class="container-scroll" style="top:0px;">
+						<% include include/index-top.html%>
+						<% include include/index-hot.html%>
+						<% include include/index-recommend.html%>
+						<% include include/index-female.html%>
+						<% include include/index-male.html%>
+						<% include include/index-free.html%>
+						<% include include/index-bottom.html%>
+					</div>
+				</div>
+				<div style="width:734px;float:left;">
+					<% include include/index-shelf.html%>
 				</div>
 			</div>
 		</div>
