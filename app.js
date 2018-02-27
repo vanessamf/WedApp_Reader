@@ -50,7 +50,12 @@ app.use(controller.get('/book',function*(){
 
 app.use(controller.get('/search',function*(){
 	this.set('Cache-Control','no-cache');
-	this.body=yield render('search',{title:'搜索页面'});//es6  test:模板名字
+	this.body=yield render('search',{nav:'搜索'});//es6  test:模板名字
+}));
+
+app.use(controller.get('/reader',function*(){
+	this.set('Cache-Control','no-cache');
+	this.body=yield render('reader'); 
 }));
 
 app.use(controller.get('/male',function*(){
@@ -90,6 +95,21 @@ app.use(controller.get('/ajax/book',function*(){
 	this.body=service.get_book_data(id);
 }));
 
+app.use(controller.get('/ajax/chapter',function*(){
+	this.set('Cache-Control','no-cache'); 	 
+	this.body=service.get_chapter_data();
+}));
+
+app.use(controller.get('/ajax/chapter_data',function*(){
+	this.set('Cache-Control','no-cache'); 
+	var params=querystring.parse(this.req._parsedUrl.query);
+	var id=params.id;
+	if(!id){
+		id=""
+	}
+	this.body=service.get_chapter_content_data(id);
+}));
+
 app.use(controller.get('/ajax/rank',function*(){
 	this.set('Cache-Control','no-cache');
 	this.body=service.get_rank_data();
@@ -120,5 +140,5 @@ app.use(controller.get('/ajax/search',function*(){
 	this.body=yield service.get_search_data(start,end,keyword);
 }));
 
-app.listen(3001);//监听端口
+app.listen(3002);//监听端口
 console.log('koa server is started!')
